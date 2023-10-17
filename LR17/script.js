@@ -1,44 +1,40 @@
-function createCalendar(id, year, month) {
-    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const daysInMonth = new Date(year, month, 0).getDate();
 
-    const table = document.createElement('table');
-    const thead = document.createElement('thead');
-    const tbody = document.createElement('tbody');
+    function createCalendar(id, year, month) {
+        let elem = document.getElementById(id);
+        let mon = month - 1;
+        let d = new Date(year, mon);
+        let table = '<table><tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>';
 
-    // Create table header with days of the week
-    const headerRow = document.createElement('tr');
-    daysOfWeek.forEach(day => {
-        const th = document.createElement('th');
-        th.textContent = day;
-        headerRow.appendChild(th);
-    });
-    thead.appendChild(headerRow);
-
-    // Create table cells for the days of the month
-    let currentDay = 1;
-    for (let i = 0; i < 6; i++) { // Assuming at most 6 rows
-        const row = document.createElement('tr');
-        for (let j = 0; j < 7; j++) {
-            if (currentDay > daysInMonth) {
-                break;
-            }
-            const cell = document.createElement('td');
-            cell.textContent = currentDay;
-            row.appendChild(cell);
-            currentDay++;
+        for (let i = 0; i < getDay(d); i++) {
+            table += '<td></td>';
         }
-        tbody.appendChild(row);
+
+        while (d.getMonth() == mon) {
+            table += '<td>' + d.getDate() + '</td>';
+            if (getDay(d) % 7 == 6) {
+                table += '</tr><tr>';
+            }
+            d.setDate(d.getDate() + 1);
+        }
+
+        if (getDay(d) != 0) {
+            for (let i = getDay(d); i < 7; i++) {
+                table += '<td></td>';
+            }
+        }
+
+        table += '</tr></table>';
+        elem.innerHTML = table;
     }
 
-    table.appendChild(thead);
-    table.appendChild(tbody);
+    function getDay(date) {
+        let day = date.getDay();
+        if (day == 0) day = 7;
+        return day - 1;
+    }
 
-    const calendarContainer = document.getElementById(id);
-    calendarContainer.innerHTML = '';
-    calendarContainer.appendChild(table);
-}
-
-// Usage example:
-//createCalendar('calendar', 2024, 2); // September 2023
-createCalendar('calendar', 2021, 9); // September 2023
+    document.getElementById('generate-calendar').addEventListener('click', function () {
+        let year = prompt('Введите год');
+        let month = prompt('Введите месяц');
+        createCalendar('calendar-container', year, month);
+    });
