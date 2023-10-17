@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="main">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,17 +19,52 @@
     </ul>
     
     <button id="moveButton">Переместить элементы</button>
-    <script>
-        document.getElementById('moveButton').addEventListener('click',()=>{
-            const list1 = document.getElementById('list1');
-            const list2 = document.getElementById('list2');
+<br><br>
+    <input type="text" id="itemText" placeholder="Введите текст">
+    <button id ="addToStart">Добавить в начало</button>
+    <button id="addToEnd">Добавить в конец</button>
+    <ul id="itemList"></ul>
+<br><br>
+    <button id="test">Щёлк</button>
+    <div id="myElement">
+        This is some text.
+        <p>This is a paragraph.</p>
+        More text here.
+    </div>
+<br><br>
+    <ul id="GG">
+        <li>GG</li>
+        <li>GG</li>
+        <li>GG</li>
+        <li>GG</li>
+        <li>GG</li>
+    </ul>
+    <button id="del">del</button>
+    <ul id="WP">
+        <li>WP</li>
+        <li>WP</li>
+        <li>WP</li>
+        <li>WP</li>
+        <li>WP</li>
+        <li>WP</li>
+    </ul>
+<br><br>
+<button id = "del2">Удалить всё!</button>
+<br>
+<select id="myList">
+    <option>Схема</option>
+    <option>Модель</option>
+    <option>Эскиз</option>
+</select>
+<br>
+<button id="tic">Тык</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-            const list2Items = list2.querySelectorAll('li');
-
-            list2Items.forEach(function(item){
-                list1.appendChild(item);
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
