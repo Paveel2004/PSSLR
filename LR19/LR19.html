@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+    <button id="b1">Тык 1</button>
+    <button id="b2">Тык 2</button>
+    <button id="b3">Тык 3</button>
+
+    <script>
+        const button1 = document.getElementById("b1");
+        const button2 = document.getElementById("b2");
+        const button3 = document.getElementById("b3");
+
+
+        //t1
+        button1.addEventListener('click',() => {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let res ='';
+            const n = Math.floor(Math.random()*characters.length+1);
+            for (let i=0;i<n;i++)
+            {
+                const randomIndex = Math.floor(Math.random()*n);
+                res += characters.charAt(randomIndex);
+            }
+            console.log(res);
+        });
+
+        //t2
+        button2.addEventListener('click',()=>{
+            var rndCol = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
+            document.body.style.backgroundColor = rndCol;
+
+        });
+
+        button3.addEventListener('click',()=>{
+            console.log("Спасибо, что щелкнули на мне!.")
+            
+        });
+    </script>
+</body>
+</html>

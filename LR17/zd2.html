@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tree"></div>
+    <script>
+        function createNestedList(data)
+        {
+            if(typeof data !== 'object' || data === null)
+            {
+                return '';
+            }
+            
+            let html = '<ul>';
+            for(const key in data)
+            {
+                if(data.hasOwnProperty(key))
+                {
+                    html += '<li>' + key;
+                    const childList = createNestedList(data[key]);
+                    if(childList)
+                    {
+                        html += childList;
+                    }
+                    html += '</li>';
+
+                }
+                
+            }
+            html += '</ul>'
+            return html;
+        }
+
+        const data = {
+    "Fruits": {
+        "Citrus": {
+            "Lemon": null,
+            "Orange": null
+        },
+        "Berries": {
+            "Strawberry": null,
+            "Blueberry": null
+        }
+    },
+    "Vegetables": {
+        "Leafy Greens": {
+            "Spinach": null,
+            "Kale": null
+        },
+        "Root Vegetables": {
+            "Carrot": null,
+            "Potato": null
+        }
+    }
+};
+        
+const result = createNestedList(data);
+document.getElementById("tree").innerHTML = result;
+
+        
+    </script>
+    
+</body>
+</html>

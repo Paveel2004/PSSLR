@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list1">
+        <li>Элемент 1</li>
+        <li>Элемент 2</li>
+        <li>Элемент 3</li>
+    </ul>
+    
+    <ul id="list2">
+        <li>Элемент A</li>
+        <li>Элемент B</li>
+        <li>Элемент C</li>
+    </ul>
+    
+    <button id="moveButton">Переместить элементы</button>
+    <script>
+        document.getElementById('moveButton').addEventListener('click',()=>{
+            const list1 = document.getElementById('list1');
+            const list2 = document.getElementById('list2');
+
+            const list2Items = list2.querySelectorAll('li');
+
+            list2Items.forEach(function(item){
+                list1.appendChild(item);
+            });
+        });
+    </script>
+</body>
+</html>

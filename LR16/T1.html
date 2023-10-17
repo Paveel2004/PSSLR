@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myElement">Hello</div>
+    <div class="myClass">Hello class</div>
+    <div class="myClass">Hello class 2</div>
+    <script>
+        const element = document.getElementById('myElement');
+        console.log(element.textContent);
+
+        const elementsWidthCыlass = document.getElementsByClassName("myClass");
+        for(let i = 0; i<elementsWidthClass.length; i++ )
+            console.log(elementsWidthClass[i].textContent);
+
+
+
+        const allElements = document.querySelectorAll('*');
+        allElements.forEach(element => {
+        const elementId = element.getAttribute('id');
+        if (elementId) {
+            element.style.border = '1px solid red'; 
+        }
+});
+
+
+    
+    </script>
+</body>
+</html>
