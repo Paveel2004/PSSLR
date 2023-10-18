@@ -80,9 +80,12 @@ document.addEventListener('mousemove', (event) => {
 document.addEventListener('mouseup', () => {
     isDragging = false;
 });
+
 }
 const draggableText = document.getElementById('draggable-text');
 const draggableImage = document.getElementById('draggable-image');
 
 Move(draggableText);
 Move(draggableImage);
+
+//4
