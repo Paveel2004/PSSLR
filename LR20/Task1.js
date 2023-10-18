@@ -24,28 +24,65 @@ replaseButton.addEventListener("click",()=>{
 });
 
 //3
- const draggables = document.querySelectorAll('.draggable');
+//  const draggables = document.querySelectorAll('.draggable');
+// function Move(draggables) {
+//     let offsetX, offsetY;
+//     let isDragging = false;
 
-        let offsetX, offsetY;
-        let isDragging = false;
+//     draggables.forEach(draggable => {
+//         draggable.addEventListener('mousedown', (event) => {
+//             isDragging = true;
+//             offsetX = event.clientX - draggable.getBoundingClientRect().left;
+//             offsetY = event.clientY - draggable.getBoundingClientRect().top;
+//         });
 
-        draggables.forEach(draggable => {
-            draggable.addEventListener('mousedown', (event) => {
-                isDragging = true;
-                offsetX = event.clientX - draggable.getBoundingClientRect().left;
-                offsetY = event.clientY - draggable.getBoundingClientRect().top;
-            });
+//         document.addEventListener('mousemove', (event) => {
+//             if (isDragging) {
+//                 const x = event.clientX - offsetX;
+//                 const y = event.clientY - offsetY;
+//                 draggable.style.left = x + 'px';
+//                 draggable.style.top = y + 'px';
+//             }
+//         });
 
-            document.addEventListener('mousemove', (event) => {
-                if (isDragging) {
-                    const x = event.clientX - offsetX;
-                    const y = event.clientY - offsetY;
-                    draggable.style.left = x + 'px';
-                    draggable.style.top = y + 'px';
-                }
-            });
+//         document.addEventListener('mouseup', () => {
+//             isDragging = false;
+//         });
+//     });
+// }
 
-            document.addEventListener('mouseup', () => {
-                isDragging = false;
-            });
-        });
+// const element = document.querySelectorAll('.draggable');
+// const element2 = document.querySelectorAll(".draggable2");
+
+// Move(element);
+// Move(element2);
+
+
+function Move (el){
+let offsetX, offsetY;
+let isDragging = false;
+
+el.addEventListener('mousedown', (event) => {
+    isDragging = true;
+    offsetX = event.clientX - el.getBoundingClientRect().left;
+    offsetY = event.clientY - el.getBoundingClientRect().top;
+});
+
+document.addEventListener('mousemove', (event) => {
+    if (isDragging) {
+        const x = event.clientX - offsetX;
+        const y = event.clientY - offsetY;
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+    }
+});
+
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+});
+}
+const draggableText = document.getElementById('draggable-text');
+const draggableImage = document.getElementById('draggable-image');
+
+Move(draggableText);
+Move(draggableImage);

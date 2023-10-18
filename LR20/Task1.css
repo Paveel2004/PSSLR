@@ -1,8 +1,13 @@
-.draggable {
+#draggable-image {
+  position: absolute;
+  user-drag: none;
+  user-select: none;
+  /* Дополнительные стили для изображения, если необходимо */
+}
+
+#draggable-text {
   position: absolute;
   user-drag: none;
   user-select: none;
 }
-
-
 
