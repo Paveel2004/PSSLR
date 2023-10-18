@@ -22,3 +22,30 @@ replaseButton.addEventListener("click",()=>{
     text.innerHTML = "";
     text.appendChild(imageElement);
 });
+
+//3
+ const draggables = document.querySelectorAll('.draggable');
+
+        let offsetX, offsetY;
+        let isDragging = false;
+
+        draggables.forEach(draggable => {
+            draggable.addEventListener('mousedown', (event) => {
+                isDragging = true;
+                offsetX = event.clientX - draggable.getBoundingClientRect().left;
+                offsetY = event.clientY - draggable.getBoundingClientRect().top;
+            });
+
+            document.addEventListener('mousemove', (event) => {
+                if (isDragging) {
+                    const x = event.clientX - offsetX;
+                    const y = event.clientY - offsetY;
+                    draggable.style.left = x + 'px';
+                    draggable.style.top = y + 'px';
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+        });
