@@ -59,7 +59,6 @@ const parseBook = JSON.parse(bookJson);
 console.log(parseBook.author);
 
 //Task 5
-//lol
 let car = {
     wheels: 4,
     places:2,
