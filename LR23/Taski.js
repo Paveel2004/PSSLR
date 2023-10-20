@@ -68,3 +68,5 @@ const jsonCar = JSON.stringify(car,null,2);
 console.log("Строка json \n"+jsonCar);
 car = JSON.parse(jsonCar)
 console.log(car);
+
+//Task 6
