@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div class="form-wrap">
+        <form method="post">
+            <div>
+                <font size="6" style="color: red">Форма регистрации</font>
+            </div>
+            <div>
+                <label for="name">Логин</label>
+                <input type="text" id="name" required>
+                <span id="nameError" class="error"></span>
+            </div>
+            <div>
+                <label for="e-mail">Email</label>
+                <input type="email" id="email" required>
+                <span id="emailError" class="error"></span>
+            </div>
+            <div>
+                <label for="password">Пароль</label>
+                <input type="password" id="password" required>
+                <span id="passwordError" class="error"></span>
+            </div>
+            <div>
+                <label for="password2">Подтверждение пароля</label>
+                <input type="password" id="password2" required>
+                <span id="password2Error" class="error"></span>
+            </div>
+            <div>
+                <label for="passport">Номер паспорта</label>
+                <input type="passport" id="passport" required>
+                <span id="passportError" class="error"></span>
+            </div>
+            <div>
+                <marquee direction="down">Дата Рождения</marquee>
+                <input type="number" for="day" min="1" max="31" step="1" value="23">
+                <input type="number" for="month" min="1" max="12" step="1" value="2">
+                <input type="number" for="year" min="1900" max="2023" step="1" value="2010">
+            </div>
+            <div class="radio">
+                <label for="Пол">Пол</label>
+                <div>
+                    <input type="radio" name="sex" value="мужской" checked>
+                    <label for="мужской">мужской</label>
+                    <input type="radio" name="sex" value="женский">
+                    <label for="мужской">женский</label>
+                </div>
+            </div>
+            <div>
+                <label for="hobbies">Интересы</label>
+                <select name="hobbies" size="5">
+                    <option value="Computers">Компьютеры</option>
+                    <option value="Sports">Спорт</option>
+                    <option value="Games">Игры</option>
+                    <option value="Animals">Животные</option>
+                    <option value="Plants">Растения</option>
+                    <option value="History">История</option>
+                    <option value="Volunteering">Волонтёрство</option>
+                    <option value="Walks">Прогулки</option>
+                </select>
+                <div class="select-arrow"></div>
+            </div>
+            <div>
+                <label>О себе</label>
+                <textarea rows="3" cols="30" id="text"></textarea>
+            </div>
+            <div>
+                <input type="checkbox" name="accept" required>Я принимаю политику конфиденциальности</p>
+            </div>
+            <div>
+                <button type="submit" onclick="check()">Отправить</button>
+                <button type="reset">Очистить</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function check() {
+            var username = document.getElementById("name").value;
+            var password = document.getElementById("password").value;
+            var password2 = document.getElementById("password2").value;
+            var email = document.getElementById("email").value;
+            var passport = document.getElementById("passport").value;
+
+            var nameError = document.getElementById("nameError");
+            var passwordError = document.getElementById("passwordError");
+            var password2Error = document.getElementById("password2Error");
+            var emailError = document.getElementById("emailError");
+            var passport = document.getElementById("passportError");
+            nameError.innerHTML = "";
+            passwordError.innerHTML = "";
+            password2Error.innerHTML = "";
+            emailError.innerHTML = "";
+            passport.innerHTML = "";
+
+            if (!/^[a-zA-Z0-9._-]{6,20}$/.test(username)) {
+                nameError.innerHTML = "Поле 'Логин' должно содержать от 6 до 20 символов и состоять только из латинских букв, точки, подчеркивания и дефиса";
+            }
+
+            if (password !== password2) {
+                passwordError.innerHTML = "Пароли не совпадают";
+                password2Error.innerHTML = "Пароли не совпадают";
+            }
+
+            var emailRegex = /^[a-zA-Z0-9.-]+@[a-zA-Z]+\.[a-zA-Z]+$/;
+            if (!emailRegex.test(email)) {
+                emailError.innerHTML = "Неверный формат Email";
+            }
+
+            var passportRegex = /^[A-Za-z]{2}\d{7}$/;
+            if (!passportRegex.test(passport)) {
+                passportError.innerHTML = "Номер паспорта должен содержать две латинские буквы, за которыми следуют семь цифр";
+            }
+        }
+    </script>
+</body>
+
+</html>

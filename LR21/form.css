@@ -1,0 +1,73 @@
+body {
+    background-color: rgba(245, 244, 244, 0.884);
+}
+
+.form-wrap {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    
+
+}
+
+.form {
+    margin: 20px;
+}
+
+form > div {
+    margin: 20px;
+}
+
+.profile {
+    background-color: yellow;
+    align-content: center;
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 40px;
+    
+    display:grid;
+
+}
+
+.profile > h1 {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    margin-top: 30%;
+}
+
+.Strelka {
+    width: 50px;
+}
+.Avatar {
+    
+    width: 200px;
+}
+
+#validationResults {
+    margin-top: 10px;
+    color: red;
+}
+
+#validationAlert {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background-color: yellow;
+    color: black;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-left: 5px;
+}
