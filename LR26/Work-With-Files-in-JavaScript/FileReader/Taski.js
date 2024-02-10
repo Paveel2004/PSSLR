@@ -17,7 +17,7 @@ function greetUserByTime() {
   
   const welcomeMessage = greetUserByTime();
   alert(welcomeMessage);
-  
+
 ((D, B, log = (arg) => console.log(arg)) => {
     const dropZone = D.querySelector("div");
     const input = D.querySelector("input");
@@ -25,10 +25,10 @@ function greetUserByTime() {
   
     D.addEventListener("dragover", (ev) => ev.preventDefault());
     D.addEventListener("drop", (ev) => ev.preventDefault());
-  
+    
     dropZone.addEventListener("drop", (ev) => {
       ev.preventDefault();
-  
+
       log(ev.dataTransfer);
   
       file = ev.dataTransfer.files[0];

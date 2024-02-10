@@ -11,4 +11,4 @@ function createDirectory(directoryName) {
 }
 
 // Пример использования:
-createDirectory('новый_каталог2');
+createDirectory('Тестовый каталог');

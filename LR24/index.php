@@ -4,7 +4,6 @@
     <title>Галерея изображений</title>
 </head>
 <body>
-    <!--Кто эту хуйню писал?-->
     <h1>Загрузка изображений</h1>
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
